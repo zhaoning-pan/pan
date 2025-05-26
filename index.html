@@ -17,7 +17,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1d1d1f;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #6a5acd 75%, #483d8b 100%);
             min-height: 100vh;
         }
 
@@ -41,7 +41,7 @@
         h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background: linear-gradient(45deg, #4169e1, #8a2be2, #0066cc, #9370db);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -68,7 +68,7 @@
         }
 
         .section-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #6a5acd);
             color: white;
             padding: 30px 40px;
             text-align: center;
@@ -90,11 +90,11 @@
         }
 
         .game-description {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            background: linear-gradient(135deg, #e6f2ff, #f0e6ff);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #4169e1;
         }
 
         .game-description h3 {
@@ -118,7 +118,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             border: 3px solid transparent;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #1e3c72, #6a5acd);
             padding: 3px;
         }
 
@@ -149,7 +149,7 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(65, 105, 225, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -159,7 +159,7 @@
         }
 
         .feature h4 {
-            color: #667eea;
+            color: #4169e1;
             font-size: 1.3rem;
             margin-bottom: 10px;
             font-weight: 600;
@@ -168,6 +168,204 @@
         .feature p {
             color: #666;
             line-height: 1.6;
+        }
+
+        /* 付费方案样式 */
+        .pricing-section {
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 50px rgba(30, 60, 114, 0.1);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-header h3 {
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .pricing-header p {
+            font-size: 1.1rem;
+            color: #666;
+            opacity: 0.9;
+        }
+
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .plan {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-free {
+            border-color: #e0e0e0;
+        }
+
+        .plan-premium {
+            border-color: #4169e1;
+            transform: scale(1.05);
+        }
+
+        .plan-premium:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .plan-ultimate {
+            border-color: #8a2be2;
+            background: linear-gradient(135deg, #fff, #f8f4ff);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #4169e1, #8a2be2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+        }
+
+        .plan-header h4 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .price {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .currency {
+            font-size: 1.2rem;
+            color: #666;
+            vertical-align: top;
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+
+        .period {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-button-free {
+            background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
+            color: #666;
+        }
+
+        .plan-button-free:hover {
+            background: linear-gradient(45deg, #d0d0d0, #e5e5e5);
+            transform: translateY(-2px);
+        }
+
+        .plan-button-premium {
+            background: linear-gradient(45deg, #4169e1, #0066cc);
+            color: white;
+            box-shadow: 0 6px 20px rgba(65, 105, 225, 0.3);
+        }
+
+        .plan-button-premium:hover {
+            background: linear-gradient(45deg, #3a5fce, #0052a3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(65, 105, 225, 0.4);
+        }
+
+        .plan-button-ultimate {
+            background: linear-gradient(45deg, #8a2be2, #6a1b9a);
+            color: white;
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .plan-button-ultimate:hover {
+            background: linear-gradient(45deg, #7b27d1, #5a1878);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        .payment-security {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, #4169e1, #8a2be2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.2);
         }
 
         footer {
@@ -284,6 +482,95 @@
                 <div class="game-description">
                     <h3>游戏简介</h3>
                     <p>Monster Survivors是一款激动人心的生存冒险游戏，玩家需要在充满危险的世界中生存下去。面对各种怪物的威胁，你需要收集资源、制造武器、建造防御设施，并不断提升自己的生存技能。游戏采用像素风格的画面设计，配合紧张刺激的音效，为玩家带来沉浸式的游戏体验。</p>
+                </div>
+
+                <!-- 付费方案模块 -->
+                <div class="pricing-section">
+                    <div class="pricing-header">
+                        <h3>🎮 选择你的游戏体验</h3>
+                        <p>解锁更多内容，享受完整的Monster Survivors冒险</p>
+                    </div>
+                    
+                    <div class="pricing-plans">
+                        <div class="plan plan-free">
+                            <div class="plan-header">
+                                <h4>免费体验</h4>
+                                <div class="price">
+                                    <span class="currency">¥</span>
+                                    <span class="amount">0</span>
+                                    <span class="period">/永久</span>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>✅ 基础游戏模式</li>
+                                <li>✅ 5种武器类型</li>
+                                <li>✅ 基础角色技能</li>
+                                <li>✅ 在线排行榜</li>
+                                <li>❌ 高级皮肤</li>
+                                <li>❌ 专属武器</li>
+                                <li>❌ VIP支持</li>
+                            </ul>
+                            <button class="plan-button plan-button-free" onclick="selectPlan('free')">
+                                开始免费游戏
+                            </button>
+                        </div>
+
+                        <div class="plan plan-premium">
+                            <div class="plan-badge">🔥 热门选择</div>
+                            <div class="plan-header">
+                                <h4>高级版</h4>
+                                <div class="price">
+                                    <span class="currency">¥</span>
+                                    <span class="amount">29</span>
+                                    <span class="period">/月</span>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>✅ 所有游戏模式</li>
+                                <li>✅ 15种武器类型</li>
+                                <li>✅ 全部角色技能</li>
+                                <li>✅ 在线排行榜</li>
+                                <li>✅ 10套高级皮肤</li>
+                                <li>✅ 5种专属武器</li>
+                                <li>✅ 优先客服支持</li>
+                            </ul>
+                            <button class="plan-button plan-button-premium" onclick="selectPlan('premium')">
+                                立即升级
+                            </button>
+                        </div>
+
+                        <div class="plan plan-ultimate">
+                            <div class="plan-badge">👑 终极版</div>
+                            <div class="plan-header">
+                                <h4>终极版</h4>
+                                <div class="price">
+                                    <span class="currency">¥</span>
+                                    <span class="amount">199</span>
+                                    <span class="period">/永久</span>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>✅ 所有高级版功能</li>
+                                <li>✅ 无限武器库</li>
+                                <li>✅ 独家角色</li>
+                                <li>✅ 私人服务器</li>
+                                <li>✅ 限量收藏皮肤</li>
+                                <li>✅ 专属特效</li>
+                                <li>✅ 24/7 VIP支持</li>
+                            </ul>
+                            <button class="plan-button plan-button-ultimate" onclick="selectPlan('ultimate')">
+                                获取终极体验
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="payment-security">
+                        <div class="security-badges">
+                            <span class="badge">🔒 安全支付</span>
+                            <span class="badge">💳 支持多种支付方式</span>
+                            <span class="badge">🔄 30天退款保证</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="iframe-container">
