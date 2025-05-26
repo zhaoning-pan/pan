@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monster Survivors - 生存冒险游戏</title>
-    <meta name="description" content="Monster Survivors是一款激动人心的生存冒险游戏，挑战你的生存技能，对抗怪物群体。">
-    <link rel="canonical" href="https://MonsterSurvivors.com">
+    <title>闪耀希望游戏平台</title>
     <style>
         * {
             margin: 0;
@@ -14,11 +12,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #1d1d1f;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #6a5acd 75%, #483d8b 100%);
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #333;
         }
 
         .container {
@@ -29,638 +26,785 @@
 
         header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            margin: 20px auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            text-align: center;
-            animation: slideDown 0.8s ease-out;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #4169e1, #8a2be2, #0066cc, #9370db);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            animation: gradientShift 3s ease-in-out infinite;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 30px;
-            font-weight: 300;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
         }
 
-        .game-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            margin: 30px auto;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            animation: slideUp 0.8s ease-out 0.2s both;
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .section-header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298, #6a5acd);
+        .category-dropdown {
+            position: relative;
+        }
+
+        .category-btn {
+            background: #667eea;
             color: white;
-            padding: 30px 40px;
-            text-align: center;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .category-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
         }
 
-        .section-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 150px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1001;
+            margin-top: 5px;
         }
 
-        .game-content {
-            padding: 40px;
+        .dropdown-content a {
+            color: #333;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #f0f0f0;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            width: 200px;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #5a6fd8;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .filters {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .game-category {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .game-description {
-            background: linear-gradient(135deg, #e6f2ff, #f0e6ff);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 5px solid #4169e1;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
         }
 
-        .game-description h3 {
-            color: #333;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .game-description p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.7;
+        .stars {
+            color: #ffd700;
         }
 
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 3px solid transparent;
-            background: linear-gradient(45deg, #1e3c72, #6a5acd);
-            padding: 3px;
-        }
-
-        .iframe-wrapper {
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
+        .play-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
             border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .game-detail {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .game-detail.active {
             display: block;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .feature {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(65, 105, 225, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature h4 {
-            color: #4169e1;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .feature p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* 付费方案样式 */
-        .pricing-section {
-            margin: 40px 0;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 15px 50px rgba(30, 60, 114, 0.1);
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .pricing-header h3 {
-            font-size: 2.2rem;
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .pricing-header p {
-            font-size: 1.1rem;
-            color: #666;
-            opacity: 0.9;
-        }
-
-        .pricing-plans {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .plan {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid transparent;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .plan:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .plan-free {
-            border-color: #e0e0e0;
-        }
-
-        .plan-premium {
-            border-color: #4169e1;
-            transform: scale(1.05);
-        }
-
-        .plan-premium:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .plan-ultimate {
-            border-color: #8a2be2;
-            background: linear-gradient(135deg, #fff, #f8f4ff);
-        }
-
-        .plan-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, #4169e1, #8a2be2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
-        }
-
-        .plan-header h4 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .price {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .currency {
-            font-size: 1.2rem;
-            color: #666;
-            vertical-align: top;
-        }
-
-        .amount {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #1e3c72;
-        }
-
-        .period {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .features-list li {
-            padding: 8px 0;
-            font-size: 0.95rem;
-            color: #555;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-
-        .plan-button {
-            width: 100%;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .plan-button-free {
-            background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
-            color: #666;
-        }
-
-        .plan-button-free:hover {
-            background: linear-gradient(45deg, #d0d0d0, #e5e5e5);
-            transform: translateY(-2px);
-        }
-
-        .plan-button-premium {
-            background: linear-gradient(45deg, #4169e1, #0066cc);
-            color: white;
-            box-shadow: 0 6px 20px rgba(65, 105, 225, 0.3);
-        }
-
-        .plan-button-premium:hover {
-            background: linear-gradient(45deg, #3a5fce, #0052a3);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(65, 105, 225, 0.4);
-        }
-
-        .plan-button-ultimate {
-            background: linear-gradient(45deg, #8a2be2, #6a1b9a);
-            color: white;
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
-        }
-
-        .plan-button-ultimate:hover {
-            background: linear-gradient(45deg, #7b27d1, #5a1878);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
-        }
-
-        .payment-security {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .security-badges {
+        .game-detail-header {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
         }
 
-        .badge {
-            background: linear-gradient(45deg, #4169e1, #8a2be2);
+        .back-btn {
+            background: #6c757d;
             color: white;
-            padding: 8px 16px;
+            border: none;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.2);
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: rgba(255, 255, 255, 0.8);
+        .back-btn:hover {
+            background: #5a6268;
+        }
+
+        .game-iframe-container {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-sections {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .recommendations {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .recommendation-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .recommendation-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .recommendation-info h4 {
             font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: #333;
         }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .recommendation-info p {
+            font-size: 0.8rem;
+            color: #666;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+        .no-games {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            header {
-                margin: 15px auto;
-                padding: 30px 20px;
+            .nav-menu {
+                justify-content: center;
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .search-input {
+                width: 150px;
             }
 
-            .subtitle {
-                font-size: 1.1rem;
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
-            .section-header {
-                padding: 25px 20px;
-            }
-
-            .section-header h2 {
-                font-size: 1.7rem;
-            }
-
-            .game-content {
-                padding: 25px 20px;
-            }
-
-            .game-description {
-                padding: 20px;
-            }
-
-            .iframe-container {
-                height: 400px;
-            }
-
-            .features {
+            .game-sections {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .feature {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .iframe-container {
-                height: 350px;
+            .filter-group {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Monster Survivors</h1>
-            <p class="subtitle">生存冒险，挑战极限</p>
-        </header>
-
-        <main class="game-section">
-            <div class="section-header">
-                <h2>开始你的生存之旅</h2>
-                <p>在这个充满挑战的世界中证明你的生存技能</p>
-            </div>
-            
-            <div class="game-content">
-                <div class="game-description">
-                    <h3>游戏简介</h3>
-                    <p>Monster Survivors是一款激动人心的生存冒险游戏，玩家需要在充满危险的世界中生存下去。面对各种怪物的威胁，你需要收集资源、制造武器、建造防御设施，并不断提升自己的生存技能。游戏采用像素风格的画面设计，配合紧张刺激的音效，为玩家带来沉浸式的游戏体验。</p>
-                </div>
-
-                <!-- 付费方案模块 -->
-                <div class="pricing-section">
-                    <div class="pricing-header">
-                        <h3>🎮 选择你的游戏体验</h3>
-                        <p>解锁更多内容，享受完整的Monster Survivors冒险</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" onclick="showHomePage()">🌟 闪耀希望游戏</a>
+                <nav class="nav-menu">
+                    <div class="category-dropdown">
+                        <button class="category-btn" onclick="toggleDropdown()">游戏分类 ▼</button>
+                        <div class="dropdown-content" id="categoryDropdown">
+                            <a href="#" onclick="filterByCategory('all')">全部游戏</a>
+                            <a href="#" onclick="filterByCategory('puzzle')">益智游戏</a>
+                            <a href="#" onclick="filterByCategory('action')">动作游戏</a>
+                            <a href="#" onclick="filterByCategory('strategy')">策略游戏</a>
+                            <a href="#" onclick="filterByCategory('adventure')">冒险游戏</a>
+                            <a href="#" onclick="filterByCategory('casual')">休闲游戏</a>
+                        </div>
                     </div>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索游戏..." id="searchInput" onkeyup="handleSearch(event)">
+                        <button class="search-btn" onclick="searchGames()">🔍</button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 游戏列表页面 -->
+        <div id="homePage">
+            <div class="filters">
+                <div class="filter-group">
+                    <span class="filter-label">筛选:</span>
+                    <button class="filter-btn active" onclick="filterGames('all')">全部</button>
+                    <button class="filter-btn" onclick="filterGames('hot')">热门</button>
+                    <button class="filter-btn" onclick="filterGames('new')">最新</button>
+                    <button class="filter-btn" onclick="filterGames('rating')">高评分</button>
+                </div>
+            </div>
+
+            <div class="games-grid" id="gamesGrid">
+                <!-- 游戏卡片将通过JavaScript动态生成 -->
+            </div>
+
+            <div class="no-games" id="noGames" style="display: none;">
+                <h3>😔 没有找到相关游戏</h3>
+                <p>请尝试其他搜索关键词或筛选条件</p>
+            </div>
+        </div>
+
+        <!-- 游戏详情页面 -->
+        <div id="gameDetailPage" class="game-detail">
+            <div class="game-detail-header">
+                <h1 id="gameDetailTitle">游戏标题</h1>
+                <button class="back-btn" onclick="showHomePage()">← 返回</button>
+            </div>
+
+            <div class="game-iframe-container">
+                <iframe id="gameIframe" class="game-iframe" src="about:blank"></iframe>
+            </div>
+
+            <div class="game-sections">
+                <div class="game-content">
+                    <div class="section-title">游戏简介</div>
+                    <p id="gameDetailDescription">游戏简介将在这里显示...</p>
                     
-                    <div class="pricing-plans">
-                        <div class="plan plan-free">
-                            <div class="plan-header">
-                                <h4>免费体验</h4>
-                                <div class="price">
-                                    <span class="currency">¥</span>
-                                    <span class="amount">0</span>
-                                    <span class="period">/永久</span>
-                                </div>
-                            </div>
-                            <ul class="features-list">
-                                <li>✅ 基础游戏模式</li>
-                                <li>✅ 5种武器类型</li>
-                                <li>✅ 基础角色技能</li>
-                                <li>✅ 在线排行榜</li>
-                                <li>❌ 高级皮肤</li>
-                                <li>❌ 专属武器</li>
-                                <li>❌ VIP支持</li>
-                            </ul>
-                            <button class="plan-button plan-button-free" onclick="selectPlan('free')">
-                                开始免费游戏
-                            </button>
-                        </div>
-
-                        <div class="plan plan-premium">
-                            <div class="plan-badge">🔥 热门选择</div>
-                            <div class="plan-header">
-                                <h4>高级版</h4>
-                                <div class="price">
-                                    <span class="currency">¥</span>
-                                    <span class="amount">29</span>
-                                    <span class="period">/月</span>
-                                </div>
-                            </div>
-                            <ul class="features-list">
-                                <li>✅ 所有游戏模式</li>
-                                <li>✅ 15种武器类型</li>
-                                <li>✅ 全部角色技能</li>
-                                <li>✅ 在线排行榜</li>
-                                <li>✅ 10套高级皮肤</li>
-                                <li>✅ 5种专属武器</li>
-                                <li>✅ 优先客服支持</li>
-                            </ul>
-                            <button class="plan-button plan-button-premium" onclick="selectPlan('premium')">
-                                立即升级
-                            </button>
-                        </div>
-
-                        <div class="plan plan-ultimate">
-                            <div class="plan-badge">👑 终极版</div>
-                            <div class="plan-header">
-                                <h4>终极版</h4>
-                                <div class="price">
-                                    <span class="currency">¥</span>
-                                    <span class="amount">199</span>
-                                    <span class="period">/永久</span>
-                                </div>
-                            </div>
-                            <ul class="features-list">
-                                <li>✅ 所有高级版功能</li>
-                                <li>✅ 无限武器库</li>
-                                <li>✅ 独家角色</li>
-                                <li>✅ 私人服务器</li>
-                                <li>✅ 限量收藏皮肤</li>
-                                <li>✅ 专属特效</li>
-                                <li>✅ 24/7 VIP支持</li>
-                            </ul>
-                            <button class="plan-button plan-button-ultimate" onclick="selectPlan('ultimate')">
-                                获取终极体验
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="payment-security">
-                        <div class="security-badges">
-                            <span class="badge">🔒 安全支付</span>
-                            <span class="badge">💳 支持多种支付方式</span>
-                            <span class="badge">🔄 30天退款保证</span>
-                        </div>
-                    </div>
+                    <div class="section-title" style="margin-top: 2rem;">游戏玩法</div>
+                    <div id="gameDetailInstructions">游戏玩法说明将在这里显示...</div>
                 </div>
 
-                <div class="iframe-container">
-                    <div class="iframe-wrapper">
-                        <iframe 
-                            src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
-                            title="Monster Survivors 游戏"
-                            allowfullscreen>
-                            <p>您的浏览器不支持iframe。请<a href="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" target="_blank">点击这里</a>直接访问游戏。</p>
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="features">
-                    <div class="feature">
-                        <h4>🎮 即时游戏体验</h4>
-                        <p>无需下载安装，直接在浏览器中畅玩，支持PC和移动设备，随时随地开始你的冒险。</p>
-                    </div>
-                    <div class="feature">
-                        <h4>⚔️ 策略战斗系统</h4>
-                        <p>面对不同类型的怪物，制定最佳的战斗策略，合理利用资源和武器取得胜利。</p>
-                    </div>
-                    <div class="feature">
-                        <h4>🏗️ 建造与制造</h4>
-                        <p>收集材料建造防御工事，制造强力武器和实用工具，打造属于你的生存基地。</p>
-                    </div>
-                    <div class="feature">
-                        <h4>🌟 技能成长系统</h4>
-                        <p>通过战斗和探索获得经验，解锁新技能，让你的角色变得更加强大。</p>
+                <div class="recommendations">
+                    <div class="section-title">推荐游戏</div>
+                    <div id="recommendedGames">
+                        <!-- 推荐游戏将通过JavaScript动态生成 -->
                     </div>
                 </div>
             </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 MonsterSurvivors.com - 所有权利保留 | 体验最佳的在线生存游戏</p>
-        </footer>
-    </div>
+        </div>
+    </main>
 
     <script>
-        // 添加页面加载动画
-        document.addEventListener('DOMContentLoaded', function() {
-            const features = document.querySelectorAll('.feature');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
+        // 游戏数据
+        const games = [
+            {
+                id: 1,
+                title: "数独大师",
+                category: "puzzle",
+                description: "经典数独游戏，挑战你的逻辑思维能力。",
+                rating: 4.5,
+                isHot: true,
+                isNew: false,
+                icon: "🧩",
+                gameUrl: "https://www.sudoku.com/",
+                instructions: "在9x9的网格中填入数字1-9，确保每行、每列和每个3x3的小方格内都包含1-9的所有数字。"
+            },
+            {
+                id: 2,
+                title: "贪吃蛇大冒险",
+                category: "action",
+                description: "经典贪吃蛇游戏的现代版本，画面精美操作流畅。",
+                rating: 4.3,
+                isHot: true,
+                isNew: true,
+                icon: "🐍",
+                gameUrl: "https://playsnake.org/",
+                instructions: "控制贪吃蛇移动吃食物，避免撞到墙壁或自己的身体。使用方向键控制移动方向。"
+            },
+            {
+                id: 3,
+                title: "五子棋对战",
+                category: "strategy",
+                description: "与AI或朋友对战的五子棋游戏，考验你的策略思维。",
+                rating: 4.2,
+                isHot: false,
+                isNew: true,
+                icon: "⚫",
+                gameUrl: "https://gomokuonline.com/",
+                instructions: "在15x15的棋盘上，率先连成5个同色棋子的一方获胜。可以横向、纵向或斜向连接。"
+            },
+            {
+                id: 4,
+                title: "俄罗斯方块",
+                category: "puzzle",
+                description: "永恒的经典游戏，简单易上手但难以精通。",
+                rating: 4.7,
+                isHot: true,
+                isNew: false,
+                icon: "🔷",
+                gameUrl: "https://tetris.com/play-tetris",
+                instructions: "旋转和移动下落的方块，填满整行来消除。游戏速度会逐渐加快，考验你的反应能力。"
+            },
+            {
+                id: 5,
+                title: "记忆翻牌",
+                category: "casual",
+                description: "考验记忆力的翻牌游戏，找出所有相同的卡牌配对。",
+                rating: 4.0,
+                isHot: false,
+                isNew: false,
+                icon: "🃏",
+                gameUrl: "https://www.memozor.com/memory-games",
+                instructions: "翻开卡牌找到相同的配对。每次只能翻开两张卡牌，记住卡牌位置是获胜的关键。"
+            },
+            {
+                id: 6,
+                title: "迷宫探险",
+                category: "adventure",
+                description: "在复杂的迷宫中寻找出路，收集宝藏和道具。",
+                rating: 4.4,
+                isHot: false,
+                isNew: true,
+                icon: "🗝️",
+                gameUrl: "https://www.mazegenerator.net/",
+                instructions: "使用方向键或WASD移动角色，找到迷宫的出口。收集路上的宝藏可以获得额外分数。"
+            },
+            {
+                id: 7,
+                title: "泡泡射击",
+                category: "casual",
+                description: "瞄准射击，消除相同颜色的泡泡，轻松愉快的休闲游戏。",
+                rating: 4.1,
+                isHot: true,
+                isNew: false,
+                icon: "🎈",
+                gameUrl: "https://www.bubbleshooter.net/",
+                instructions: "瞄准并射击泡泡，将3个或更多相同颜色的泡泡连接在一起即可消除。清除所有泡泡获胜。"
+            },
+            {
+                id: 8,
+                title: "跳跃英雄",
+                category: "action",
+                description: "控制小英雄跳跃过障碍，收集金币挑战高分。",
+                rating: 4.6,
+                isHot: true,
+                isNew: true,
+                icon: "🦸",
+                gameUrl: "https://www.crazygames.com/game/jump-hero",
+                instructions: "点击屏幕或按空格键让角色跳跃，避开障碍物并收集金币。时机掌握是关键。"
+            }
+        ];
 
-            features.forEach(feature => {
-                feature.style.opacity = '0';
-                feature.style.transform = 'translateY(30px)';
-                feature.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(feature);
-            });
+        let currentFilter = 'all';
+        let currentCategory = 'all';
+        let currentSearch = '';
 
-            // iframe加载状态提示
-            const iframe = document.querySelector('iframe');
-            const iframeContainer = document.querySelector('.iframe-container');
+        // 初始化页面
+        function init() {
+            renderGames();
+        }
+
+        // 渲染游戏列表
+        function renderGames() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const noGames = document.getElementById('noGames');
             
-            iframe.addEventListener('load', function() {
-                console.log('游戏加载完成');
+            let filteredGames = games.filter(game => {
+                // 分类筛选
+                if (currentCategory !== 'all' && game.category !== currentCategory) {
+                    return false;
+                }
+                
+                // 搜索筛选
+                if (currentSearch && !game.title.toLowerCase().includes(currentSearch.toLowerCase()) 
+                    && !game.description.toLowerCase().includes(currentSearch.toLowerCase())) {
+                    return false;
+                }
+                
+                // 其他筛选
+                switch (currentFilter) {
+                    case 'hot':
+                        return game.isHot;
+                    case 'new':
+                        return game.isNew;
+                    case 'rating':
+                        return game.rating >= 4.5;
+                    default:
+                        return true;
+                }
             });
 
-            iframe.addEventListener('error', function() {
-                iframeContainer.innerHTML = `
-                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; border-radius: 12px; flex-direction: column;">
-                        <h3 style="color: #666; margin-bottom: 15px;">游戏加载中...</h3>
-                        <p style="color: #999;">如果游戏长时间未加载，请检查网络连接或刷新页面重试</p>
-                        <a href="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" target="_blank" 
-                           style="margin-top: 20px; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 8px;">
-                           直接访问游戏
-                        </a>
+            if (filteredGames.length === 0) {
+                gamesGrid.style.display = 'none';
+                noGames.style.display = 'block';
+                return;
+            }
+
+            noGames.style.display = 'none';
+            gamesGrid.style.display = 'grid';
+
+            gamesGrid.innerHTML = filteredGames.map(game => `
+                <div class="game-card" onclick="showGameDetail(${game.id})">
+                    <div class="game-image">
+                        <span>${game.icon}</span>
                     </div>
-                `;
+                    <div class="game-info">
+                        <h3 class="game-title">${game.title}</h3>
+                        <div class="game-category">${getCategoryName(game.category)}</div>
+                        <p class="game-description">${game.description}</p>
+                        <div class="game-rating">
+                            <span class="stars">${getStars(game.rating)}</span>
+                            <span>${game.rating}</span>
+                        </div>
+                        <button class="play-btn" onclick="event.stopPropagation(); showGameDetail(${game.id})">
+                            开始游戏
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 获取分类中文名
+        function getCategoryName(category) {
+            const categoryNames = {
+                puzzle: '益智游戏',
+                action: '动作游戏',
+                strategy: '策略游戏',
+                adventure: '冒险游戏',
+                casual: '休闲游戏'
+            };
+            return categoryNames[category] || '其他';
+        }
+
+        // 生成星级评分
+        function getStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '★';
+            }
+            if (hasHalfStar) {
+                stars += '☆';
+            }
+            
+            return stars;
+        }
+
+        // 筛选游戏
+        function filterGames(filter) {
+            currentFilter = filter;
+            
+            // 更新筛选按钮状态
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
+            event.target.classList.add('active');
+            
+            renderGames();
+        }
+
+        // 按分类筛选
+        function filterByCategory(category) {
+            currentCategory = category;
+            toggleDropdown();
+            renderGames();
+        }
+
+        // 切换下拉菜单
+        function toggleDropdown() {
+            const dropdown = document.getElementById('categoryDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // 搜索游戏
+        function searchGames() {
+            const searchInput = document.getElementById('searchInput');
+            currentSearch = searchInput.value.trim();
+            renderGames();
+        }
+
+        // 处理搜索框回车事件
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                searchGames();
+            }
+        }
+
+        // 显示游戏详情
+        function showGameDetail(gameId) {
+            const game = games.find(g => g.id === gameId);
+            if (!game) return;
+            
+            // 隐藏首页，显示详情页
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('gameDetailPage').classList.add('active');
+            
+            // 填充游戏详情
+            document.getElementById('gameDetailTitle').textContent = game.title;
+            document.getElementById('gameDetailDescription').textContent = game.description;
+            document.getElementById('gameDetailInstructions').textContent = game.instructions;
+            document.getElementById('gameIframe').src = game.gameUrl;
+            
+            // 生成推荐游戏
+            generateRecommendations(game);
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 生成推荐游戏
+        function generateRecommendations(currentGame) {
+            const recommendedContainer = document.getElementById('recommendedGames');
+            
+            // 获取相同分类的其他游戏
+            let recommendations = games.filter(game => 
+                game.id !== currentGame.id && 
+                (game.category === currentGame.category || game.isHot)
+            ).slice(0, 4);
+            
+            recommendedContainer.innerHTML = recommendations.map(game => `
+                <div class="recommendation-item" onclick="showGameDetail(${game.id})">
+                    <div class="recommendation-image">
+                        ${game.icon}
+                    </div>
+                    <div class="recommendation-info">
+                        <h4>${game.title}</h4>
+                        <p>${getCategoryName(game.category)} • ${getStars(game.rating)} ${game.rating}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 显示首页
+        function showHomePage() {
+            document.getElementById('homePage').style.display = 'block';
+            document.getElementById('gameDetailPage').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // 点击外部关闭下拉菜单
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('categoryDropdown');
+            const button = document.querySelector('.category-btn');
+            
+            if (!button.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
         });
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
